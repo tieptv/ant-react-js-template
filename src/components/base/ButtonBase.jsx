@@ -17,9 +17,14 @@ const ButtonBase = ({
     active: "bg-gradient-to-tr from-primary-700 to-secondary-700 text-white", //bg-custom-pink
     normal: "bg-gradient-to-tr from-primary-600 to-secondary-600 text-white", //bg-custom-pink
     back: "bg-pink-100 text-pink-800",
-    blank: "bg-white text-[#B91B52]",
+    blank: "bg-white", //bg-custom-pink
     disabled:
       "bg-gradient-to-tr from-primary-600 to-secondary-600 text-white cursor-not-allowed",
+  };
+
+  const labelStyles = {
+    normal: "text-white",
+    blank: "text-pink-800",
   };
 
   const hoverStyles = {
@@ -34,7 +39,7 @@ const ButtonBase = ({
 
   const getLabelStyle = () => {
     if (disabled) return typeStyles.disabled;
-    return classNames(typeStyles[type], hoverStyles[type], style);
+    return classNames(labelStyles[type], style);
   };
 
   return (
@@ -43,7 +48,9 @@ const ButtonBase = ({
       onClick={onClick}
       className={classNames(baseClass, getButtonStyle())}
     >
-      {label && <label className="text-white flex-1">{label}</label>}
+      {label && (
+        <label className={classNames(getLabelStyle(), "flex-1")}>{label}</label>
+      )}
       {children}
       <RightOutlined style={{ color: "white" }} />
     </button>
