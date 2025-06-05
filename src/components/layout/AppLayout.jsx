@@ -42,10 +42,17 @@ const App = () => {
         collapsed={collapsed}
         onCollapse={(value) => setCollapsed(value)}
       >
-        <div className={` px-2 align-middle items-center text-white flex gap-5 ${collapsed ? 'justify-center' : 'justify-start'}`}>
-          <img src="https://img.icons8.com/?size=100&id=G2RVO7PLrUXq&format=png&color=000000" className="h-10 w-10"/>
+        <div
+          className={` px-2 align-middle items-center text-white flex gap-5 ${
+            collapsed ? "justify-center" : "justify-start"
+          }`}
+        >
+          <img
+            src="https://img.icons8.com/?size=100&id=G2RVO7PLrUXq&format=png&color=000000"
+            className="h-10 w-10"
+          />
           {!collapsed && <span className="text-[25px]">BNPL</span>}
-          </div>
+        </div>
         <Menu
           theme="dark"
           defaultSelectedKeys={["1"]}

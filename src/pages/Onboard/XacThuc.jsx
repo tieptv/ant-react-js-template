@@ -1,4 +1,5 @@
 // src/pages/XacThuc.jsx
+import ButtonBase from "@/components/base/ButtonBase";
 import { Steps, Form, Input, Radio, Button } from "antd";
 
 export default function XacThuc() {
@@ -63,16 +64,8 @@ export default function XacThuc() {
           </div>
 
           <div className="flex justify-between items-center border-t border-gray-300 pt-4">
-            <a href="#" className="text-pink-600 font-medium">
-              Huỷ
-            </a>
-            <Button
-              type="primary"
-              className="bg-pink-500 border-pink-500 hover:bg-pink-600 rounded-md flex items-center"
-            >
-              Tiếp tục&nbsp;
-              <span className="text-lg font-bold">&gt;</span>
-            </Button>
+            <ButtonBase type="blank" label="Huỷ" />
+            <ButtonBase type="normal" label="Tiếp tục&nbsp;" />
           </div>
         </Form>
       </div>

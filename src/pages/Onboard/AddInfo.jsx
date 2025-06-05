@@ -68,7 +68,6 @@ export default function AdditionalInfoForm() {
              ================================ */}
           <Panel header={<Text strong>Nhập thông tin nhân thân</Text>} key="1">
             <Form.Item
-              label="Email"
               name="email"
               rules={[
                 { required: true, message: "Vui lòng nhập Email" },
@@ -78,7 +77,7 @@ export default function AdditionalInfoForm() {
               <Input placeholder="Nhập Email" />
             </Form.Item>
 
-            <Form.Item name="oldIdNumber" label="Số CMND/CCCD cũ">
+            <Form.Item name="oldIdNumber">
               <Input placeholder="Số CMND/CCCD cũ" />
             </Form.Item>
 
