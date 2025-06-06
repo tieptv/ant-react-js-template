@@ -5,7 +5,8 @@ import "antd/dist/reset.css"; // AntD v5+ reset (or just "antd/dist/antd.css" if
 import { Outlet, useNavigate } from "react-router-dom";
 import "./OnboardingLayout.css";
 import { CheckOutlined } from "@ant-design/icons";
-
+import LfvnIcon from "../../assets/icons/lfvn-icon.svg?react";
+import VnTripIcon from "../../assets/icons/vntrip-logo.svg?react";
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-pink-200">
@@ -15,23 +16,14 @@ export default function App() {
         style={{ position: "sticky", top: 0, zIndex: 1, display: "flex" }}
       >
         {/* Left Logo */}
-        <img
-          src="/path/to/vntrip-logo.png"
-          alt="vntrip.vn"
-          className="h-8 object-contain"
-        />
-        {/* Right Logo */}
-        <img
-          src="/path/to/lotte-finance-logo.png"
-          alt="Lotte Finance"
-          className="h-8 object-contain"
-        />
+        <VnTripIcon width={122} height={80} />
+        <LfvnIcon width={118} height={80} />
       </header>
 
       {/* MAIN AREA */}
       <main className="bg-gradient-to-tl from-[#ffb5c9] to-[#ffd9d6] flex-1 flex flex-col md:flex-row justify-center px-6 py-8">
         {/* Sidebar (Purple Card) */}
-        <div className="w-full md:w-1/4 lg:w-1/4 xl:w-1/8 mb-6 md:mb-0">
+        <div className="w-full md:w-1/4 lg:w-1/4 xl:w-1/7 mb-6 md:mb-0">
           <div className="bg-[#3A2D4C] text-white rounded-xl p-6">
             {/* Top Title */}
             <div className="text-center mb-4">
@@ -133,7 +125,7 @@ export function ProgressSteps({ initialStep = 0 }) {
         return (
           <div
             key={idx}
-            className="flex items-start cursor-pointer"
+            className="flex w-full flex-row items-start cursor-pointer"
             onClick={() => {
               setCurrentStep(idx);
               navigate(stepPaths[idx]);
@@ -154,7 +146,9 @@ export function ProgressSteps({ initialStep = 0 }) {
             </div>
 
             {/* ==== LABEL COLUMN ==== */}
-            <div className={`mt-0.5 text-base font-medium ${labelColor}`}>
+            <div
+              className={`flex-1 mt-0.5 text-base font-medium ${labelColor}`}
+            >
               {label}
             </div>
           </div>
