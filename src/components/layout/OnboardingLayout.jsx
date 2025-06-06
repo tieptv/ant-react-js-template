@@ -9,7 +9,7 @@ import LfvnIcon from "../../assets/icons/lfvn-icon.svg?react";
 import VnTripIcon from "../../assets/icons/vntrip-logo.svg?react";
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-pink-200">
+    <div className="min-h-screen flex flex-col bg-gradient-to-tl from-[#ffb5c9] to-[#ffd9d6] ">
       {/* HEADER */}
       <header
         className="w-full bg-white px-6 py-4 flex justify-between items-center shadow-sm"
@@ -21,7 +21,7 @@ export default function App() {
       </header>
 
       {/* MAIN AREA */}
-      <main className="bg-gradient-to-tl from-[#ffb5c9] to-[#ffd9d6] flex-1 flex flex-col md:flex-row justify-center px-6 py-8">
+      <main className="flex-1 flex flex-col md:flex-row justify-center px-6 py-8">
         {/* Sidebar (Purple Card) */}
         <div className="w-full md:w-1/4 lg:w-1/4 xl:w-1/7 mb-6 md:mb-0">
           <div className="bg-[#3A2D4C] text-white rounded-xl p-6">
@@ -47,13 +47,13 @@ export default function App() {
         </div>
 
         {/* Content (White Card with Form) */}
-        <div className="w-full md:w-2/3 lg:w-1/2 ml-6">
+        <div className="w-full  h-full md:w-2/3 lg:w-1/2 ml-6">
           <Outlet />
         </div>
       </main>
 
       {/* Footer / Bottom Note (optional - shown in screenshot) */}
-      <footer className="w-full px-6 py-4 text-center text-gray-700 text-sm">
+      <footer className="w-full bg-transparent px-6 py-6 text-center text-gray-700 text-sm">
         Dịch vụ Pay Later của LOTTE Finance là hình thức cho vay thanh toán mua
         hàng hoá nhanh chóng và tiện dụng. Chi tiết thông tin xin xem{" "}
         <a href="#" className="text-pink-600 underline">

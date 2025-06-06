@@ -10,6 +10,7 @@ import OnboardingLayout from "@/components/layout/OnboardingLayout";
 import XacThuc from "@/pages/Onboard/XacThuc";
 import XacThucEKYC from "@/pages/Onboard/XacThucEKYC";
 import AddInfo from "@/pages/Onboard/AddInfo";
+import Approval from "@/pages/Onboard/Approval";
 
 export default function AppRoutes() {
   return (
@@ -45,7 +46,7 @@ export default function AppRoutes() {
         <Route path="add-info" element={<AddInfo />} />
 
         {/* /onboarding/approval */}
-        <Route path="approval" element={<AddInfo />} />
+        <Route path="approval" element={<Approval />} />
 
         {/* /onboarding/contract */}
         <Route path="contract" element={<AddInfo />} />

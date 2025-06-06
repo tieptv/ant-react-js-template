@@ -1,0 +1,8 @@
+.ant-input-group-addon {
+  background-color: white !important;
+  border-right-width:0rem !important;
+}
+
+.ant-input {
+  border-left-color: white;
+}

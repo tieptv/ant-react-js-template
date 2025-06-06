@@ -10,6 +10,7 @@ import {
   Divider,
   Typography,
 } from "antd";
+import "./AddInfo.css";
 
 const { Panel } = Collapse;
 const { Title, Text } = Typography;
@@ -74,7 +75,12 @@ export default function AdditionalInfoForm() {
                 { type: "email", message: "Địa chỉ Email không hợp lệ" },
               ]}
             >
-              <Input placeholder="Nhập Email" />
+              {/* <Input placeholder="Nhập Email" /> */}
+              <Input
+                addonBefore={
+                  <span className="bg-white text-gray-800">Email</span>
+                }
+              />
             </Form.Item>
 
             <Form.Item name="oldIdNumber">

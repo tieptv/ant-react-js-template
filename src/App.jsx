@@ -3,12 +3,21 @@ import { AuthProvider } from "./components/auth/AuthRoute";
 import AppRoutes from "./routes/AppRoutes";
 import "@ant-design/v5-patch-for-react-19";
 import "./index.css";
+import { ConfigProvider } from "antd";
 
 function App() {
   return (
     <Router>
       <AuthProvider>
-        <AppRoutes />
+        <ConfigProvider
+          theme={{
+            token: {
+              colorPrimary: "#3A2D4C",
+            },
+          }}
+        >
+          <AppRoutes />
+        </ConfigProvider>
       </AuthProvider>
     </Router>
   );
