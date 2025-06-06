@@ -3,12 +3,25 @@ import ButtonBase from "@/components/base/ButtonBase";
 import CustomInput from "@/components/base/CustomInput";
 import CustomRadioGroup from "@/components/base/CustomRadioGroup";
 import CardLayout from "@/components/layout/CardLayout";
-import { Steps, Form, Radio, Button } from "antd";
+import { Form, Typography } from "antd";
 
-export default function XacThuc() {
-  return (<CardLayout title={"Thông tin khách hàng"}>
+const { Title } = Typography
+
+export default function CustomerVerify() {
+
+
+  const renderAction = () => {
+    return  (<div className="flex justify-between items-center border-t border-gray-300 pt-4">
+            <ButtonBase type="blank" label="Huỷ" />
+            <ButtonBase type="normal" label="Tiếp tục&nbsp;" />
+          </div>)
+  }
+  return (<CardLayout title={"Thông tin khách hàng"} action={renderAction()}>
         {/* Form */}
         <Form layout="vertical">
+          <Title level={5} style={{ marginBottom: 15 }}>
+            Nhập thông tin
+          </Title>
           {/* Loại giấy tờ */}
           <Form.Item
             label={
@@ -48,11 +61,6 @@ export default function XacThuc() {
             Tôi đồng ý cho chuyển một số thông tin tài khoản của tôi tại trang
             TMĐT này (nếu có) cho LOTTE Finance để xác nhận thông tin, đánh giá
             tín nhiệm
-          </div>
-
-          <div className="flex justify-between items-center border-t border-gray-300 pt-4">
-            <ButtonBase type="blank" label="Huỷ" />
-            <ButtonBase type="normal" label="Tiếp tục&nbsp;" />
           </div>
         </Form>
      </CardLayout>

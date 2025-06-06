@@ -7,10 +7,9 @@ import Profile from "../pages/Profile";
 import ProtectedRoute from "../components/auth/ProtectedRoute";
 import AppLayout from "../components/layout/AppLayout";
 import OnboardingLayout from "@/components/layout/OnboardingLayout";
-import XacThuc from "@/pages/Onboard/XacThuc";
 import XacThucEKYC from "@/pages/Onboard/XacThucEKYC";
 import AddInfo from "@/pages/Onboard/AddInfo";
-import Approval from "@/pages/Onboard/Approval";
+import CustomerVerify from "@/pages/Onboard/customer-verify/CustomerVerify";
 
 export default function AppRoutes() {
   return (
@@ -37,7 +36,7 @@ export default function AppRoutes() {
       <Route path="/onboarding" element={<OnboardingLayout />}>
         {/* <Route index element={<Onboarding />} /> */}
 
-        <Route index element={<XacThuc />} />
+        <Route index element={<CustomerVerify />} />
 
         {/* /onboarding/ekyc */}
         <Route path="ekyc" element={<XacThucEKYC />} />
