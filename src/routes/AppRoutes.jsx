@@ -10,6 +10,7 @@ import OnboardingLayout from "@/components/layout/OnboardingLayout";
 import XacThucEKYC from "@/pages/Onboard/XacThucEKYC";
 import AddInfo from "@/pages/Onboard/AddInfo";
 import CustomerVerify from "@/pages/Onboard/customer-verify/CustomerVerify";
+import Approval from "@/pages/Onboard/Approval";
 
 export default function AppRoutes() {
   return (
