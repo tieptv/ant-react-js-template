@@ -1,21 +1,12 @@
 // src/pages/XacThuc.jsx
 import ButtonBase from "@/components/base/ButtonBase";
-import { Steps, Form, Input, Radio, Button } from "antd";
+import CustomInput from "@/components/base/CustomInput";
+import CustomRadioGroup from "@/components/base/CustomRadioGroup";
+import CardLayout from "@/components/layout/CardLayout";
+import { Steps, Form, Radio, Button } from "antd";
 
 export default function XacThuc() {
-  return (
-    <div className="flex">
-      <div className="bg-white rounded-xl p-8 shadow-md">
-        {/* Header of Content Card */}
-        <div className="flex justify-between items-center border-b border-gray-300 pb-2 mb-6">
-          <h2 className="text-gray-800 text-xl font-medium">
-            Thông tin khách hàng
-          </h2>
-          <span className="text-pink-600 font-medium">
-            LOTTE Finance Pay Later
-          </span>
-        </div>
-
+  return (<CardLayout title={"Thông tin khách hàng"}>
         {/* Form */}
         <Form layout="vertical">
           {/* Loại giấy tờ */}
@@ -26,12 +17,7 @@ export default function XacThuc() {
               </span>
             }
           >
-            <Radio.Group>
-              <Radio value="cmnd">CMND</Radio>
-              <Radio value="cccd" className="ml-6">
-                CCCD
-              </Radio>
-            </Radio.Group>
+            <CustomRadioGroup options={[{value: 'cmnd', label: 'CMND'}, {value: 'cccd', label: 'CCCD'}]}/>
           </Form.Item>
 
           {/* Số CMND/CCCD */}
@@ -42,8 +28,9 @@ export default function XacThuc() {
               </span>
             }
           >
-            <Input placeholder="Nhập số CMND/CCCD" className="rounded-md" />
+            <CustomInput placeholder="Nhập số CMND/CCCD"/>
           </Form.Item>
+          
 
           {/* Số điện thoại */}
           <Form.Item
@@ -53,7 +40,7 @@ export default function XacThuc() {
               </span>
             }
           >
-            <Input placeholder="Nhập số điện thoại" className="rounded-md" />
+            <CustomInput placeholder="Nhập số điện thoại"/>
           </Form.Item>
 
           {/* Disclaimer Text */}
@@ -68,7 +55,6 @@ export default function XacThuc() {
             <ButtonBase type="normal" label="Tiếp tục&nbsp;" />
           </div>
         </Form>
-      </div>
-    </div>
+     </CardLayout>
   );
 }
