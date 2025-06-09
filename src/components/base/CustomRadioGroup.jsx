@@ -15,6 +15,7 @@ const CustomRadioGroup = ({
       value={value}
       defaultValue={defaultValue}
       onChange={onChange}
+      
     >
       {options.map((item, index) => (
         <Radio key={index} value={item.value}>{item.label}</Radio>

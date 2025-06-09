@@ -15,28 +15,33 @@
 
 
 body {
+  font-size: 12px !important;
   font-family: 'Noto Sans', sans-serif !important;
 }
+
 /* ripple effect */
 .ripple-effect {
   position: relative;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
   transition-duration: 0.4s;
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
 }
+
 .ripple-effect:after {
   content: "";
   background: #EC5176;
   position: absolute;
   padding-top: 300%;
   padding-left: 350%;
-  margin-left: -20px!important;
+  margin-left: -20px !important;
   margin-top: -120%;
   opacity: 0;
   transition: all 0.8s
 }
+
 .ripple-effect:active:after {
   padding: 0;
   margin: 0;
@@ -54,7 +59,8 @@ body {
   position: relative;
   cursor: pointer;
 }
-.ripple-button > .ripple {
+
+.ripple-button>.ripple {
   width: 20px;
   height: 20px;
   position: absolute;
@@ -65,22 +71,27 @@ body {
   opacity: 1;
   animation: 0.9s ease 1 forwards ripple-effect;
 }
+
 @keyframes ripple-effect {
   0% {
     transform: scale(1);
     opacity: 1;
   }
+
   50% {
     transform: scale(10);
     opacity: 0.375;
   }
+
   100% {
     transform: scale(35);
     opacity: 0;
   }
 }
-.ripple-button > .content {
+
+.ripple-button>.content {
   position: relative;
   z-index: 2;
 }
+
 /* end ripple effect */
