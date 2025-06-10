@@ -65,12 +65,8 @@ export default function App() {
 }
 
 export function ProgressSteps({ initialStep = 0 }) {
-  /**
-   * initialStep = zero-based index of the step that starts “in-progress.”
-   * You can pass <ProgressSteps initialStep={2} /> to start on “Phê duyệt,”
-   * or leave it at the default (0) to start on “Xác thực.”
-   */
   const [currentStep, setCurrentStep] = useState(initialStep);
+  const [animating, setAnimating] = useState(false);
   const navigate = useNavigate();
 
   const steps = [
@@ -89,10 +85,20 @@ export function ProgressSteps({ initialStep = 0 }) {
     "/onboarding/execute",
   ];
 
+  const handleStepClick = (idx) => {
+    if (animating || idx === currentStep) return;
+    
+    setAnimating(true);
+    setCurrentStep(idx);
+    navigate(stepPaths[idx]);
+    
+    // Reset animation after transition completes
+    setTimeout(() => setAnimating(false), 500);
+  };
+
   return (
     <div className="flex flex-col items-start">
       {steps.map((label, idx) => {
-        // Determine each step’s “status”
         const status =
           idx < currentStep
             ? "completed"
@@ -100,23 +106,28 @@ export function ProgressSteps({ initialStep = 0 }) {
             ? "in-progress"
             : "future";
 
-        // Render dot or check-icon based on status
         let dot;
         if (status === "completed") {
           dot = (
             <div className="relative">
-              <div className="h-6 w-6 rounded-full bg-secondary flex items-center justify-center">
+              <div className="h-6 w-6 rounded-full bg-secondary flex items-center justify-center transition-all duration-300 ease-in-out">
                 <CheckOutlined style={{ fontSize: 12, color: "white" }} />
               </div>
             </div>
           );
         } else if (status === "in-progress") {
-          dot = <div className="h-4 w-4 rounded-full bg-secondary mt-1"></div>;
+          dot = (
+            <div className="relative">
+              <div className="absolute inset-0 bg-pink-300 rounded-full animate-ping opacity-75"></div>
+              <div className="h-6 w-6 rounded-full bg-secondary flex items-center justify-center relative z-10"></div>
+            </div>
+          );
         } else {
-          dot = <div className="h-4 w-4 rounded-full bg-[#554966] mt-1"></div>;
+          dot = (
+            <div className="h-4 w-4 rounded-full bg-[#554966] mt-1 transition-all duration-300 ease-in-out"></div>
+          );
         }
 
-        // Choose label color
         const labelColor =
           status === "completed" || status === "in-progress"
             ? "text-secondary"
@@ -125,11 +136,10 @@ export function ProgressSteps({ initialStep = 0 }) {
         return (
           <div
             key={idx}
-            className="flex w-full flex-row items-start cursor-pointer"
-            onClick={() => {
-              setCurrentStep(idx);
-              navigate(stepPaths[idx]);
-            }}
+            className={`flex w-full flex-row items-start cursor-pointer transition-all duration-500 ease-in-out ${
+              animating ? "pointer-events-none" : ""
+            }`}
+            onClick={() => handleStepClick(idx)}
           >
             {/* ==== ICON & CONNECTOR COLUMN ==== */}
             <div className="flex flex-col items-center w-6 mr-2">
@@ -138,7 +148,7 @@ export function ProgressSteps({ initialStep = 0 }) {
               {/* Connector line below (except on last step) */}
               {idx < steps.length - 1 && (
                 <div
-                  className={`mt-1 w-0.5 ${
+                  className={`mt-1 w-0.5 transition-all duration-500 ease-in-out ${
                     idx < currentStep ? "bg-pink-500 h-5" : "bg-gray-600 h-6"
                   }`}
                 />
@@ -147,7 +157,7 @@ export function ProgressSteps({ initialStep = 0 }) {
 
             {/* ==== LABEL COLUMN ==== */}
             <div
-              className={`flex-1 mt-0.5 text-base font-medium ${labelColor}`}
+              className={`flex-1 mt-0.5 text-base font-medium ${labelColor} transition-colors duration-300`}
             >
               {label}
             </div>
