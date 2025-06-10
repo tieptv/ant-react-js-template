@@ -1,4 +1,5 @@
-import RepeatPasswordInput from "./general/RepeatPasswordInput";
+import RepeatPasswordInput from "@/components/customer-verify/RepeatPasswordInput";
+
 
 export default function ForgotPassword () {
     return (

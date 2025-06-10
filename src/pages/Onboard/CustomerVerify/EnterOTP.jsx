@@ -1,6 +1,6 @@
 import { Form } from "antd";
-import GeneralInfo from "./general/GeneralInfo";
-import OTPInput from "./general/OTPInput";
+import OTPInput from "@/components/customer-verify/OTPInput";
+import GeneralInfo from "@/components/customer-verify/GeneralInfo";
 
 export default function EnterOTP({isGeneral = true}) {
   return (

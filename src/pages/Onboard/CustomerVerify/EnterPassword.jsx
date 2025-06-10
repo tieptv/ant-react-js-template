@@ -1,7 +1,6 @@
 import CustomInput from "@/components/base/CustomInput";
+import GeneralInfo from "@/components/customer-verify/GeneralInfo";
 import { Form, Typography } from "antd";
-import EnterOTP from "./EnterOTP";
-import GeneralInfo from "./general/GeneralInfo";
 
 const { Link } = Typography;
 
