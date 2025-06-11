@@ -13,7 +13,6 @@ import CustomInput from "@/components/base/CustomInput";
 import CustomSelect from "@/components/base/CustomSelect";
 import CustomCheckBoxGroup from "@/components/base/CustomCheckBoxGroup";
 import CustomRadioGroup from "@/components/base/CustomRadioGroup";
-import CardLayout from "@/components/layout/CardLayout";
 
 const { Panel } = Collapse;
 const { Title, Text } = Typography;

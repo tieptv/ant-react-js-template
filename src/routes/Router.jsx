@@ -1,3 +1,9 @@
+export const RouterAddInfo = {
+  // ADD INFO
+  PERSONAL_INFO_FORM: "addInfo",
+  PERSONAL_INFO_VIEW: "addInfoDetail",
+};
+
 export default {
   ONBOARDING: "onboarding",
   //VERIFY
@@ -8,9 +14,7 @@ export default {
   IDENTITY_INFO: "identityInfo",
   FORGOT_PASSWORD: "forgotPassword",
   ENTER_OTP_FORGOT_PASS: "enterOtpForgotPass",
-  // ADD INFO
-  PERSONAL_INFO_FORM: "addInfo",
-  PERSONAL_INFO_VIEW: "addInfoDetail",
+  ...RouterAddInfo,
 };
 
 export const RouteMatchers = {

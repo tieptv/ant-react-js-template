@@ -17,6 +17,7 @@
 body {
   font-size: 12px !important;
   font-family: 'Noto Sans', sans-serif !important;
+  @apply text-[#3E3E3E]; 
 }
 
 /* ripple effect */

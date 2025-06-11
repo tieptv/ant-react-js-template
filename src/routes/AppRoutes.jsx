@@ -19,6 +19,8 @@ import IdentityInfo from "@/pages/Onboard/CustomerVerify/IdentityInfo";
 import Router from "./Router";
 import ForgotPassword from "@/pages/Onboard/CustomerVerify/ForgotPassword";
 import AdditionalInfoForm from "@/pages/Onboard/AddInfo/AddInfo";
+import AddInfoIndex from "@/pages/Onboard/AddInfo";
+import AddInfoDetail from "@/pages/Onboard/AddInfo/AddInfoDetail";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -68,16 +70,16 @@ export default function AppRoutes() {
             element={<EnterOTP isGeneral={false} />}
           />
           {/* Verify Tab */}
+        </Route>
 
+        <Route path="" element={<AddInfoIndex />}>
           {/* Personal Info Tab */}
           <Route
+            index
             path={Router.PERSONAL_INFO_FORM}
             element={<AdditionalInfoForm />}
           />
-          <Route
-            path={Router.PERSONAL_INFO_VIEW}
-            element={<AdditionalInfoForm />}
-          />
+          <Route path={Router.PERSONAL_INFO_VIEW} element={<AddInfoDetail />} />
           {/* Personal Info Tab */}
         </Route>
 
