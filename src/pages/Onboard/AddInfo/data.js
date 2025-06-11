@@ -40,3 +40,29 @@ export const dataGeneral = [
     value: "6/2015",
   },
 ];
+
+export const dataEmp = [
+  {
+    label: "Email:",
+    value: "Yunanguyen@gmail.com",
+  },
+  {
+    label: "Số CMND cũ:",
+    value: "",
+  },
+  {
+    label: "Nghề nghiệp:",
+    value: "Thiết kế đồ hoạ",
+  },
+  {
+    label: "Chức vụ:",
+    value: "Chuyên viên",
+  },
+];
+
+export const dataCutru = [
+  { label: "Tỉnh/thành phố:", value: "Quảng Bình" },
+  { label: "Quận/Huyện:", value: "Đồng Hới" },
+  { label: "Phường/Xã:", value: "Bắc Lý" },
+  { label: "Địa chỉ:", value: "23/ngõ 34/54 Cụm 4" },
+];

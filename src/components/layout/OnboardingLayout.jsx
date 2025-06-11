@@ -1,5 +1,5 @@
 // OnboardingLayout.jsx
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "antd/dist/reset.css"; // AntD v5+ reset (or just "antd/dist/antd.css" if you’re on v4)
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import "./OnboardingLayout.css";
@@ -62,9 +62,9 @@ export default function App() {
             </div>
           </div>
         </div>
-
-        {/* Content (White Card with Form) */}
-        <div className="w-full  h-full md:w-2/3 lg:w-1/2 ml-6">
+        {/* Content (White Card with Form) */}\
+        <div className="w-6" />
+        <div className="w-full h-full md:w-2/3 lg:w-1/2">
           <Outlet />
         </div>
       </main>
