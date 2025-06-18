@@ -13,7 +13,6 @@ import CustomInput from "@/components/base/CustomInput";
 import CustomSelect from "@/components/base/CustomSelect";
 import CustomCheckBoxGroup from "@/components/base/CustomCheckBoxGroup";
 import CustomRadioGroup from "@/components/base/CustomRadioGroup";
-import CardLayout from "@/components/layout/CardLayout";
 
 const { Panel } = Collapse;
 const { Title, Text } = Typography;
@@ -56,10 +55,10 @@ const relationships = [
 ];
 
 const methods = [
-    { label: "SMS", value: "sms" },
-    { label: "Email", value: "email" },
-    { label: "Lotte F", value: "lottef" },
-  ]
+  { label: "SMS", value: "sms" },
+  { label: "Email", value: "email" },
+  { label: "Lotte F", value: "lottef" },
+];
 
 export default function AdditionalInfoForm() {
   const [form] = Form.useForm();
@@ -78,8 +77,7 @@ export default function AdditionalInfoForm() {
   };
 
   return (
-    <CardLayout title={'Bổ sung thông tin'}>
-
+    <div>
       <Form
         form={form}
         layout="vertical"
@@ -97,6 +95,9 @@ export default function AdditionalInfoForm() {
           <Panel header={<Text strong>Nhập thông tin nhân thân</Text>} key="1">
             <Form.Item
               name="email"
+              label={
+                <span className="font-normal text-gray-700">Nhập Email</span>
+              }
               rules={[
                 { required: true, message: "Vui lòng nhập Email" },
                 { type: "email", message: "Địa chỉ Email không hợp lệ" },
@@ -105,7 +106,12 @@ export default function AdditionalInfoForm() {
               <CustomInput placeholder="Nhập Email" />
             </Form.Item>
 
-            <Form.Item name="oldIdNumber">
+            <Form.Item
+              name="oldIdNumber"
+              label={
+                <span className="font-normal text-gray-700">Nhập Email</span>
+              }
+            >
               <CustomInput placeholder="Số CMND/CCCD cũ" />
             </Form.Item>
 
@@ -116,9 +122,7 @@ export default function AdditionalInfoForm() {
                   Nghề nghiệp <Text type="danger">*</Text>
                 </>
               }
-              rules={[
-                { required: true, message: "Vui lòng chọn Nghề nghiệp" },
-              ]}
+              rules={[{ required: true, message: "Vui lòng chọn Nghề nghiệp" }]}
             >
               <CustomSelect placeholder="Chọn nghề nghiệp" options={jobs} />
             </Form.Item>
@@ -130,9 +134,7 @@ export default function AdditionalInfoForm() {
                   Chức vụ <Text type="danger">*</Text>
                 </>
               }
-              rules={[
-                { required: true, message: "Vui lòng chọn Chức vụ" },
-              ]}
+              rules={[{ required: true, message: "Vui lòng chọn Chức vụ" }]}
             >
               <CustomSelect placeholder="Chọn chức vụ" options={levels} />
             </Form.Item>
@@ -152,7 +154,9 @@ export default function AdditionalInfoForm() {
                   Tỉnh/Thành phố <Text type="danger">*</Text>
                 </>
               }
-              rules={[{ required: true, message: "Vui lòng chọn Tỉnh/Thành phố" }]}
+              rules={[
+                { required: true, message: "Vui lòng chọn Tỉnh/Thành phố" },
+              ]}
             >
               <CustomSelect
                 placeholder="Chọn Tỉnh/Thành phố"
@@ -200,7 +204,9 @@ export default function AdditionalInfoForm() {
                   Địa chỉ chi tiết <Text type="danger">*</Text>
                 </>
               }
-              rules={[{ required: true, message: "Vui lòng nhập Địa chỉ chi tiết" }]}
+              rules={[
+                { required: true, message: "Vui lòng nhập Địa chỉ chi tiết" },
+              ]}
             >
               <CustomInput
                 placeholder="Ví dụ: Số nhà, đường, tổ/ấp, khu phố…"
@@ -209,7 +215,10 @@ export default function AdditionalInfoForm() {
             </Form.Item>
           </Panel>
 
-          <Panel header={<Text strong>Nhập thông tin người tham chiếu</Text>} key="3">
+          <Panel
+            header={<Text strong>Nhập thông tin người tham chiếu</Text>}
+            key="3"
+          >
             <Form.Item name="refName" label="Họ tên">
               <CustomInput placeholder="Họ tên" />
             </Form.Item>
@@ -226,7 +235,10 @@ export default function AdditionalInfoForm() {
             </Form.Item>
           </Panel>
 
-          <Panel header={<Text strong>Thông tin tài khoản Pay Later</Text>} key="4">
+          <Panel
+            header={<Text strong>Thông tin tài khoản Pay Later</Text>}
+            key="4"
+          >
             <Form.Item
               label={
                 <>
@@ -234,14 +246,20 @@ export default function AdditionalInfoForm() {
                 </>
               }
               name="statementDate"
-              rules={[
-                { required: true, message: "Vui lòng chọn Ngày sao kê" },
-              ]}
+              rules={[{ required: true, message: "Vui lòng chọn Ngày sao kê" }]}
             >
-              <CustomRadioGroup options={[{value: '01', label: 'Ngày 01'}, {value: '11', label: 'Ngày 11'}]}/>
+              <CustomRadioGroup
+                options={[
+                  { value: "01", label: "Ngày 01" },
+                  { value: "11", label: "Ngày 11" },
+                ]}
+              />
             </Form.Item>
 
-            <Text type="secondary" style={{ display: "block", marginBottom: 24 }}>
+            <Text
+              type="secondary"
+              style={{ display: "block", marginBottom: 24 }}
+            >
               (Ngày trả nợ là ngày sao kê + 5 ngày)
             </Text>
 
@@ -255,10 +273,13 @@ export default function AdditionalInfoForm() {
               }
               name="notificationMethods"
               rules={[
-                { required: true, message: "Vui lòng chọn ít nhất một hình thức" },
+                {
+                  required: true,
+                  message: "Vui lòng chọn ít nhất một hình thức",
+                },
               ]}
             >
-              <CustomCheckBoxGroup options={methods}/>
+              <CustomCheckBoxGroup options={methods} />
             </Form.Item>
 
             <Text type="secondary" style={{ fontSize: 12 }}>
@@ -285,6 +306,6 @@ export default function AdditionalInfoForm() {
           </button>
         </Form.Item>
       </Form>
-    </CardLayout>
+    </div>
   );
 }

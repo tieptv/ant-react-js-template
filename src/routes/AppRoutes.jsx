@@ -18,6 +18,9 @@ import IdentityComponent from "@/pages/Onboard/CustomerVerify/IdentityComponent"
 import IdentityInfo from "@/pages/Onboard/CustomerVerify/IdentityInfo";
 import Router from "./Router";
 import ForgotPassword from "@/pages/Onboard/CustomerVerify/ForgotPassword";
+import AdditionalInfoForm from "@/pages/Onboard/AddInfo/AddInfo";
+import AddInfoIndex from "@/pages/Onboard/AddInfo";
+import AddInfoDetail from "@/pages/Onboard/AddInfo/AddInfoDetail";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -48,6 +51,8 @@ export default function AppRoutes() {
             index
             element={<Navigate to={Router.GENERAL_INFO} replace />}
           />
+
+          {/* Verify Tab */}
           <Route path={Router.GENERAL_INFO} element={<CustomerVerify />} />
           <Route path={Router.ENTER_PASSWORD} element={<EnterPassword />} />
           <Route
@@ -64,9 +69,20 @@ export default function AppRoutes() {
             path={Router.ENTER_OTP_FORGOT_PASS}
             element={<EnterOTP isGeneral={false} />}
           />
+          {/* Verify Tab */}
         </Route>
 
-        {/* /onboarding/ekyc */}
+        <Route path="" element={<AddInfoIndex />}>
+          {/* Personal Info Tab */}
+          <Route
+            index
+            path={Router.PERSONAL_INFO_FORM}
+            element={<AdditionalInfoForm />}
+          />
+          <Route path={Router.PERSONAL_INFO_VIEW} element={<AddInfoDetail />} />
+          {/* Personal Info Tab */}
+        </Route>
+
         <Route path="ekyc" element={<XacThucEKYC />} />
 
         {/* /onboarding/add-info */}

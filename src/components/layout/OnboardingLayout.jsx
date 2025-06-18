@@ -1,12 +1,29 @@
 // OnboardingLayout.jsx
-import React, { useState } from "react";
-import { Steps, Badge, Input, Radio, Button, Popover } from "antd";
+import React, { useEffect, useState } from "react";
 import "antd/dist/reset.css"; // AntD v5+ reset (or just "antd/dist/antd.css" if you’re on v4)
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import "./OnboardingLayout.css";
 import { CheckOutlined } from "@ant-design/icons";
 import LfvnIcon from "../../assets/icons/lfvn-icon.svg?react";
 import VnTripIcon from "../../assets/icons/vntrip-logo.svg?react";
+import { RouteMatchers } from "@/routes/Router";
+
+const steps = [
+  "Xác thực",
+  "Bổ sung thông tin",
+  "Phê duyệt",
+  "Ký hợp đồng",
+  "Thực hiện giao dịch",
+];
+
+const stepPaths = [
+  "/onboarding",
+  "/onboarding/addInfo",
+  "/onboarding/approval",
+  "/onboarding/contract",
+  "/onboarding/execute",
+];
+
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-tl from-[#ffb5c9] to-[#ffd9d6] ">
@@ -35,7 +52,7 @@ export default function App() {
             {/* Dashed Divider */}
             <div className="border-t border-dashed border-purple-700 mb-6"></div>
             {/* Vertical Steps */}
-            <ProgressSteps currentStep={2} />
+            <ProgressSteps initialStep={0} />
             <div className="bottom-4 left-6 right-6 text-center text-xs mt-20 font-normal">
               <p>
                 Xin vui lòng liên hệ số hotline: <br />
@@ -45,9 +62,9 @@ export default function App() {
             </div>
           </div>
         </div>
-
-        {/* Content (White Card with Form) */}
-        <div className="w-full  h-full md:w-2/3 lg:w-1/2 ml-6">
+        {/* Content (White Card with Form) */}\
+        <div className="w-6" />
+        <div className="w-full h-full md:w-2/3 lg:w-1/2">
           <Outlet />
         </div>
       </main>
@@ -68,30 +85,29 @@ export function ProgressSteps({ initialStep = 0 }) {
   const [currentStep, setCurrentStep] = useState(initialStep);
   const [animating, setAnimating] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const pathname = location?.pathname || "";
 
-  const steps = [
-    "Xác thực",
-    "Bổ sung thông tin",
-    "Phê duyệt",
-    "Ký hợp đồng",
-    "Thực hiện giao dịch",
-  ];
+  useEffect(() => {
+    let current = 0;
 
-  const stepPaths = [
-    "/onboarding",
-    "/onboarding/add-info",
-    "/onboarding/approval",
-    "/onboarding/contract",
-    "/onboarding/execute",
-  ];
+    if (RouteMatchers.verify.test(pathname)) {
+      current = 0;
+    } else if (RouteMatchers.addInfo.test(pathname)) {
+      current = 1;
+    } else {
+      current = 0;
+    }
 
+    setCurrentStep(current);
+  }, [pathname]);
   const handleStepClick = (idx) => {
     if (animating || idx === currentStep) return;
-    
+
     setAnimating(true);
     setCurrentStep(idx);
     navigate(stepPaths[idx]);
-    
+
     // Reset animation after transition completes
     setTimeout(() => setAnimating(false), 500);
   };
