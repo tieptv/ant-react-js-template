@@ -44,14 +44,26 @@ export default function AppRoutes() {
         {/* <Route index element={<Onboarding />} /> */}
 
         <Route path="" element={<CustomerVerifyIndex />}>
-          <Route index element={<Navigate to={Router.GENERAL_INFO} replace />} />
+          <Route
+            index
+            element={<Navigate to={Router.GENERAL_INFO} replace />}
+          />
           <Route path={Router.GENERAL_INFO} element={<CustomerVerify />} />
           <Route path={Router.ENTER_PASSWORD} element={<EnterPassword />} />
-          <Route path={Router.ENTER_OTP} element={<EnterOTP isGeneral={true}/>} />
-          <Route path={Router.IDENTITY_UPLOAD} element={<IdentityComponent />} />
+          <Route
+            path={Router.ENTER_OTP}
+            element={<EnterOTP isGeneral={true} />}
+          />
+          <Route
+            path={Router.IDENTITY_UPLOAD}
+            element={<IdentityComponent />}
+          />
           <Route path={Router.IDENTITY_INFO} element={<IdentityInfo />} />
           <Route path={Router.FORGOT_PASSWORD} element={<ForgotPassword />} />
-          <Route path={Router.ENTER_OTP_FORGOT_PASS} element={<EnterOTP  isGeneral={false}/>} />
+          <Route
+            path={Router.ENTER_OTP_FORGOT_PASS}
+            element={<EnterOTP isGeneral={false} />}
+          />
         </Route>
 
         {/* /onboarding/ekyc */}

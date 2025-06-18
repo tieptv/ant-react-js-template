@@ -17,7 +17,6 @@ const mapStep = new Map([
 ]);
 
 export function CustomerVerifyIndex() {
-  const [currentStep, setCurrentStep] = useState(0);
   const navigate = useNavigate();
   const verifyData = userOnboardingStore((state) => state.data.verify)
   const setVerify = userOnboardingStore((state) => state.setVerify)
@@ -49,9 +48,10 @@ export function CustomerVerifyIndex() {
             title="Quay lại"
             type={BUTTON_TYPE.back}
             onClick={backStep}
-            className="!mr-4"
+            className="!mr-1 !h-[46px] min-w-[125px] !text-[14px]"
           />
           <CustomButton
+          className={'!h-[46px] min-w-[125px] !text-[14px]'}
             title="Tiếp tục"
             type={BUTTON_TYPE.next}
             onClick={nextStep}
