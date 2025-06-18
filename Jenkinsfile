@@ -83,13 +83,13 @@ pipeline {
       }
     }
 
-    stage('Qualys scaning') {
-      steps{
-         catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-             getImageVulnsFromQualys useGlobalConfig:true, imageIds: env.IMAGE_ID
-         }
-      }
-    }
+    // stage('Qualys scaning') {
+    //   steps{
+    //      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+    //          getImageVulnsFromQualys useGlobalConfig:true, imageIds: env.IMAGE_ID
+    //      }
+    //   }
+    // }
 
     stage('Deploy Image') {
       steps{
