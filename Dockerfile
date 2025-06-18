@@ -3,11 +3,13 @@ FROM registry.lottefn.vn:5000/node:18-alpine as builder
 WORKDIR /app
 
 COPY package.json .
+COPY package-lock.json .
 RUN npm config set registry https://registry.lottefn.vn/repository/npm-central/
 RUN npm config set strict-ssl false
 RUN npm config set fetch-retries 3
 RUN npm config set fetch-retry-factor 10
-RUN npm ci --legacy-peer-deps --noproxy registry.lottefn.vn --maxsockets 1
+RUN npm ci
+
 COPY . .
 RUN npx vite build
 
