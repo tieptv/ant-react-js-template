@@ -17,7 +17,7 @@ import IdentityInfo from "@/pages/Onboard/CustomerVerify/IdentityInfo";
 import Router from "./Router";
 import ForgotPassword from "@/pages/Onboard/CustomerVerify/ForgotPassword";
 import AddInfoForm from "@/pages/Onboard/AddInfo/AddInfoForm";
-import AddInfoIndex from "@/pages/Onboard/AddInfo";
+import AddInfoIndex from "@/pages/Onboard/AddInfo/Index";
 import AddInfoDetail from "@/pages/Onboard/AddInfo/AddInfoDetail";
 import Approval from "@/pages/Onboard/Approval";
 export default function AppRoutes() {
