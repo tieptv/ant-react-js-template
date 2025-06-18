@@ -60,7 +60,7 @@ const methods = [
   { label: "Lotte F", value: "lottef" },
 ];
 
-export default function AdditionalInfoForm() {
+export default function AddInfoForm() {
   const [form] = Form.useForm();
   const [sameAddress, setSameAddress] = useState(false);
 
@@ -109,7 +109,9 @@ export default function AdditionalInfoForm() {
             <Form.Item
               name="oldIdNumber"
               label={
-                <span className="font-normal text-gray-700">Nhập Email</span>
+                <span className="font-normal text-gray-700">
+                  Nhập số CMND cũ
+                </span>
               }
             >
               <CustomInput placeholder="Số CMND/CCCD cũ" />

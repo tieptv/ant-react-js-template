@@ -35,30 +35,35 @@ const AddInfoIndex = () => {
       setCurrentStep(previousStep);
     }
   };
-  const renderActionView = () => {
-    return (
-      <div className="flex justify-between items-center border-t border-gray-300 pt-4">
-        <Link className="!text-black">Hủy</Link>
-        <div>
-          <CustomButton
-            title="Quay lại"
-            type={BUTTON_TYPE.back}
-            onClick={backStep}
-            className="!mr-4"
-          />
-          <CustomButton
-            title="Tiếp tục"
-            type={BUTTON_TYPE.next}
-            onClick={nextStep}
-          />
-        </div>
-      </div>
-    );
-  };
+
   return (
-    <CardLayout title={"Thông tin khách hàng"} action={renderActionView()}>
+    <CardLayout
+      title={"Thông tin khách hàng"}
+      action={<OnboardingAction backStep={backStep} nextStep={nextStep} />}
+    >
       <Outlet />
     </CardLayout>
+  );
+};
+
+export const OnboardingAction = ({ backStep, nextStep }) => {
+  return (
+    <div className="flex justify-between items-center border-t border-gray-300 pt-4">
+      <Link className="!text-black">Hủy</Link>
+      <div>
+        <CustomButton
+          title="Quay lại"
+          type={BUTTON_TYPE.back}
+          onClick={backStep}
+          className="!mr-4"
+        />
+        <CustomButton
+          title="Tiếp tục"
+          type={BUTTON_TYPE.next}
+          onClick={nextStep}
+        />
+      </div>
+    </div>
   );
 };
 

@@ -4,8 +4,8 @@ import "antd/dist/reset.css"; // AntD v5+ reset (or just "antd/dist/antd.css" if
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import "./OnboardingLayout.css";
 import { CheckOutlined } from "@ant-design/icons";
-import LfvnIcon from "../../assets/icons/lfvn-icon.svg?react";
-import VnTripIcon from "../../assets/icons/vntrip-logo.svg?react";
+import LfvnIcon from "@/assets/icons/lfvn-icon.svg?react";
+import VnTripIcon from "@/assets/icons/vntrip-logo.svg?react";
 import { RouteMatchers } from "@/routes/Router";
 
 const steps = [
@@ -20,8 +20,8 @@ const stepPaths = [
   "/onboarding",
   "/onboarding/addInfo",
   "/onboarding/approval",
-  "/onboarding/contract",
-  "/onboarding/execute",
+  "/onboarding/esign",
+  "/onboarding/transaction",
 ];
 
 export default function App() {
@@ -95,6 +95,12 @@ export function ProgressSteps({ initialStep = 0 }) {
       current = 0;
     } else if (RouteMatchers.addInfo.test(pathname)) {
       current = 1;
+    } else if (RouteMatchers.approval.test(pathname)) {
+      current = 2;
+    } else if (RouteMatchers.esign.test(pathname)) {
+      current = 3;
+    } else if (RouteMatchers.transaction.test(pathname)) {
+      current = 4;
     } else {
       current = 0;
     }

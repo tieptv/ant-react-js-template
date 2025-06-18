@@ -4,6 +4,18 @@ export const RouterAddInfo = {
   PERSONAL_INFO_VIEW: "addInfoDetail",
 };
 
+export const RouterApproval = {
+  APPROVAL: "approval",
+};
+
+export const RouterEsign = {
+  APPROVAL: "esign",
+};
+
+export const RouterTransaction = {
+  APPROVAL: "transaction",
+};
+
 export default {
   ONBOARDING: "onboarding",
   //VERIFY
@@ -15,9 +27,15 @@ export default {
   FORGOT_PASSWORD: "forgotPassword",
   ENTER_OTP_FORGOT_PASS: "enterOtpForgotPass",
   ...RouterAddInfo,
+  ...RouterApproval,
+  ...RouterEsign,
+  ...RouterTransaction,
 };
 
 export const RouteMatchers = {
   verify: /^\/onboarding\/verify.*$/,
   addInfo: /^\/onboarding\/addInfo.*$/,
+  approval: /^\/onboarding\/approval.*$/,
+  esign: /^\/onboarding\/esign.*$/,
+  transaction: /^\/onboarding\/transaction.*$/,
 };

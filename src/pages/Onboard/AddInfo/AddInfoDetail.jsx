@@ -11,7 +11,12 @@ const AddInfoDetail = () => {
         data={dataEmp}
         isFullWidth={false}
       />
-      <InfoView title="Thông tin cư trú" data={dataCutru} isFullWidth={false} />
+      <InfoView
+        title="Thông tin cư trú"
+        data={dataCutru}
+        isFullWidth={false}
+        nonBorder
+      />
     </div>
   );
 };

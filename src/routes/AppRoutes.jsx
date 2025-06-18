@@ -8,8 +8,6 @@ import ProtectedRoute from "../components/auth/ProtectedRoute";
 import AppLayout from "../components/layout/AppLayout";
 import OnboardingLayout from "@/components/layout/OnboardingLayout";
 import XacThucEKYC from "@/pages/Onboard/XacThucEKYC";
-import AddInfo from "@/pages/Onboard/AddInfo";
-import Approval from "@/pages/Onboard/Approval";
 import { CustomerVerifyIndex } from "@/pages/Onboard/CustomerVerify/Index";
 import CustomerVerify from "@/pages/Onboard/CustomerVerify/CustomerVerify";
 import EnterPassword from "@/pages/Onboard/CustomerVerify/EnterPassword";
@@ -18,9 +16,10 @@ import IdentityComponent from "@/pages/Onboard/CustomerVerify/IdentityComponent"
 import IdentityInfo from "@/pages/Onboard/CustomerVerify/IdentityInfo";
 import Router from "./Router";
 import ForgotPassword from "@/pages/Onboard/CustomerVerify/ForgotPassword";
-import AdditionalInfoForm from "@/pages/Onboard/AddInfo/AddInfo";
+import AddInfoForm from "@/pages/Onboard/AddInfo/AddInfoForm";
 import AddInfoIndex from "@/pages/Onboard/AddInfo";
 import AddInfoDetail from "@/pages/Onboard/AddInfo/AddInfoDetail";
+import Approval from "@/pages/Onboard/Approval";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -77,25 +76,17 @@ export default function AppRoutes() {
           <Route
             index
             path={Router.PERSONAL_INFO_FORM}
-            element={<AdditionalInfoForm />}
+            element={<AddInfoForm />}
           />
           <Route path={Router.PERSONAL_INFO_VIEW} element={<AddInfoDetail />} />
           {/* Personal Info Tab */}
         </Route>
-
-        <Route path="ekyc" element={<XacThucEKYC />} />
-
-        {/* /onboarding/add-info */}
-        <Route path="add-info" element={<AddInfo />} />
-
         {/* /onboarding/approval */}
         <Route path="approval" element={<Approval />} />
-
-        {/* /onboarding/contract */}
-        <Route path="contract" element={<AddInfo />} />
-
-        {/* /onboarding/execute */}
-        <Route path="execute" element={<AddInfo />} />
+        {/* /onboarding/esign */}
+        <Route path="esign" element={<AddInfoDetail />} />
+        {/* /onboarding/transaction */}
+        <Route path="transaction" element={<AddInfoDetail />} />
       </Route>
       <Route path="login" element={<Login />} />
     </Routes>
