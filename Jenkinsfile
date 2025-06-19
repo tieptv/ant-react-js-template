@@ -1,4 +1,4 @@
-currentBuild.displayName = "BNPL-Onboarding-gateway#"+currentBuild.number
+currentBuild.displayName = "BNPL-Onboarding-portal#"+currentBuild.number
 
 def getEnvName(branchName) {
     switch(branchName) {
@@ -129,9 +129,9 @@ pipeline {
           ])
           sh '''
           rm -rf lib/ target/
-          sed -i "s/\\s*tag:.*/  tag: '$IMAGE_TAG'/g" helm/applications/bnpl-onboarding-gateway-api/values-v1.0-$ENV_NAME.yaml
-          git add helm/applications/bnpl-onboarding-gateway-api/values-v1.0-$ENV_NAME.yaml
-          git diff-index --quiet HEAD || git commit -m "update image for bnpl-onboarding-gateway-api template"
+          sed -i "s/\\s*tag:.*/  tag: '$IMAGE_TAG'/g" helm/applications/bnpl-onboarding-portal/values-v1.0-$ENV_NAME.yaml
+          git add helm/applications/bnpl-onboarding-portal/values-v1.0-$ENV_NAME.yaml
+          git diff-index --quiet HEAD || git commit -m "update image for bnpl-onboarding-portal template"
           git push origin HEAD:master
           '''
         }
