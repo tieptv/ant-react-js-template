@@ -12,6 +12,10 @@ export default defineConfig({
     svgr({ svgrOptions: { icon: true, include: "**/*.svg?react" } }),
   ],
   base: "/onboarding/",
+  build: {
+    outDir: "dist",
+    assetsDir: "assets",
+  },
   resolve: {
     alias: {
       // now '@' maps to '<project-root>/src'
