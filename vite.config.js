@@ -32,7 +32,7 @@ export default defineConfig({
       ],
     }),
   ],
-
+  base: "/onboarding/",
   resolve: {
     alias: {
       // now '@' maps to '<project-root>/src'
