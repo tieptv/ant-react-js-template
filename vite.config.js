@@ -33,6 +33,10 @@ export default defineConfig({
     }),
   ],
   base: "/onboarding/",
+  build: {
+    outDir: "dist",
+    assetsDir: "assets",
+  },
   resolve: {
     alias: {
       // now '@' maps to '<project-root>/src'
