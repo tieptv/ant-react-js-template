@@ -89,7 +89,7 @@ export default function AddInfoForm() {
         <Collapse
           bordered={false}
           defaultActiveKey={["1"]}
-          expandIconPosition="right"
+          expandIconPosition="end"
           style={{ background: "transparent" }}
         >
           <Panel header={<Text strong>Nhập thông tin nhân thân</Text>} key="1">

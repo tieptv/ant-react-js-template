@@ -7,7 +7,6 @@ import Profile from "../pages/Profile";
 import ProtectedRoute from "../components/auth/ProtectedRoute";
 import AppLayout from "../components/layout/AppLayout";
 import OnboardingLayout from "@/components/layout/OnboardingLayout";
-import XacThucEKYC from "@/pages/Onboard/XacThucEKYC";
 import { CustomerVerifyIndex } from "@/pages/Onboard/CustomerVerify/Index";
 import CustomerVerify from "@/pages/Onboard/CustomerVerify/CustomerVerify";
 import EnterPassword from "@/pages/Onboard/CustomerVerify/EnterPassword";
@@ -17,9 +16,10 @@ import IdentityInfo from "@/pages/Onboard/CustomerVerify/IdentityInfo";
 import Router from "./Router";
 import ForgotPassword from "@/pages/Onboard/CustomerVerify/ForgotPassword";
 import AddInfoForm from "@/pages/Onboard/AddInfo/AddInfoForm";
-import AddInfoIndex from "@/pages/Onboard/AddInfo";
+import AddInfoIndex from "@/pages/Onboard/AddInfo/Index";
 import AddInfoDetail from "@/pages/Onboard/AddInfo/AddInfoDetail";
 import Approval from "@/pages/Onboard/Approval";
+import Esign from "@/pages/Onboard/Esign";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -84,7 +84,7 @@ export default function AppRoutes() {
         {/* /onboarding/approval */}
         <Route path="approval" element={<Approval />} />
         {/* /onboarding/esign */}
-        <Route path="esign" element={<AddInfoDetail />} />
+        <Route path="esign" element={<Esign />} />
         {/* /onboarding/transaction */}
         <Route path="transaction" element={<AddInfoDetail />} />
       </Route>
