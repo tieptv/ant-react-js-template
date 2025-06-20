@@ -23,25 +23,6 @@ import Approval from "@/pages/Onboard/Approval";
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<AppLayout />}>
-        <Route index element={<Home />} />
-        <Route
-          path="dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="profile"
-          element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
-          }
-        />
-      </Route>
       <Route path={Router.ONBOARDING} element={<OnboardingLayout />}>
         {/* <Route index element={<Onboarding />} /> */}
 
