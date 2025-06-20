@@ -23,7 +23,7 @@ import Approval from "@/pages/Onboard/Approval";
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path={Router.ONBOARDING} element={<OnboardingLayout />}>
+      <Route path={"/"} element={<OnboardingLayout />}>
         {/* <Route index element={<Onboarding />} /> */}
 
         <Route path="" element={<CustomerVerifyIndex />}>
