@@ -20,6 +20,7 @@ import AddInfoIndex from "@/pages/Onboard/AddInfo/Index";
 import AddInfoDetail from "@/pages/Onboard/AddInfo/AddInfoDetail";
 import Approval from "@/pages/Onboard/Approval";
 import Esign from "@/pages/Onboard/Esign";
+import Transaction from "@/pages/Onboard/Transaction";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -86,7 +87,7 @@ export default function AppRoutes() {
         {/* /onboarding/esign */}
         <Route path="esign" element={<Esign />} />
         {/* /onboarding/transaction */}
-        <Route path="transaction" element={<AddInfoDetail />} />
+        <Route path="transaction" element={<Transaction />} />
       </Route>
       <Route path="login" element={<Login />} />
     </Routes>

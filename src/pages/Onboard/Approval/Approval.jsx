@@ -22,11 +22,11 @@ export default function Approval() {
   );
 }
 
-export const LfvnCard = ({ logo, loading }) => {
+export const LfvnCard = ({ logo, loading, children }) => {
   return (
     <div className="w-2/3 min-h-[214px] rounded-[20px] bg-gradient-to-tr bg-[linear-gradient(to_top_right,_#A32385,_#E5194C)]">
       {logo && (
-        <div className="m-[20px]">
+        <div className="mt-[20px] ml-[20px]">
           <LfvnIcon width={60} height={24} fill={"white"} />
         </div>
       )}
@@ -36,10 +36,16 @@ export const LfvnCard = ({ logo, loading }) => {
           backgroundImage: `url(${backgroundImage})`,
         }}
       >
-        <span className="text-white font-bold text-sm">
-          Hồ sơ của bạn đang được xử lý ...
-        </span>
-        <div className="h-4" />
+        {children ? (
+          children
+        ) : (
+          <div>
+            <span className="text-white font-bold text-sm">
+              Hồ sơ của bạn đang được xử lý ...
+            </span>
+            <div className="h-4" />
+          </div>
+        )}
         {loading && <LoadingSpinner size={70} />}
       </div>
     </div>
