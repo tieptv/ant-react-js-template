@@ -41,7 +41,6 @@ export default function Transaction() {
         <div className="w-full">
           <TableTransaction
             tableLabel={["#", "Ngày đến hạn", "Số tiền(VND)"]}
-            data={dataTabelTransaction}
           />
         </div>
 
