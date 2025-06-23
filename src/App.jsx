@@ -7,7 +7,7 @@ import { ConfigProvider } from "antd";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/vntrip">
       <AuthProvider>
         <ConfigProvider
           theme={{

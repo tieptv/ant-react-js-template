@@ -16,7 +16,7 @@ RUN npx vite build
 FROM registry.lottefn.vn:5000/nginx:alpine as production
 # FROM nginx:alpine as production
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html/vntrip
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
