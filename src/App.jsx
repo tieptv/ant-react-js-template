@@ -7,7 +7,7 @@ import { ConfigProvider } from "antd";
 
 function App() {
   return (
-    <Router basename="/onboarding">
+    <Router>
       <AuthProvider>
         <ConfigProvider
           theme={{

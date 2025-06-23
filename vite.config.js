@@ -32,7 +32,6 @@ export default defineConfig({
       ],
     }),
   ],
-  base: "/onboarding/",
   build: {
     outDir: "dist",
     assetsDir: "assets",

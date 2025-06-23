@@ -24,7 +24,7 @@ import Transaction from "@/pages/Onboard/Transaction";
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path={"/"} element={<OnboardingLayout />}>
+      <Route path={Router.ONBOARDING} element={<OnboardingLayout />}>
         {/* <Route index element={<Onboarding />} /> */}
 
         <Route path="" element={<CustomerVerifyIndex />}>
