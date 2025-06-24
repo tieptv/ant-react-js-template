@@ -32,6 +32,7 @@ export default defineConfig({
       ],
     }),
   ],
+  base: '/vntrip/',
   build: {
     outDir: "dist",
     assetsDir: "assets",
