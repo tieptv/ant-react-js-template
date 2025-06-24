@@ -1,12 +1,14 @@
 import PageHeader from "@/components/onboarding/PageHeader";
-import CustomButton from "@/components/base/CustomButton";
+import CustomButton, { BUTTON_TYPE } from "@/components/base/CustomButton";
 import { LfvnCard } from "./Approval/Approval";
-import { Checkbox, Form, Radio } from "antd";
+import { Checkbox, Form } from "antd";
 import CustomRadioGroup from "@/components/base/CustomRadioGroup";
 import TableTransaction from "@/components/onboarding/TableTransaction";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Transaction() {
+  const [isActive, setActive] = useState(false);
   return (
     <div className="bg-white flex-1 flex-col rounded-xl p-8 shadow-md">
       <PageHeader label="Phê duyệt" />
@@ -39,6 +41,28 @@ export default function Transaction() {
           </Form.Item>
         </Form>
         <div className="w-full">
+          <div className="px-4 max-w-3xl mx-auto ">
+            <div className="py-4 w-full flex flex-row items-center justify-between border-t border-b border-gray-200">
+              <span className="text-text-200 font-bold text-sm">
+                Số kỳ trả góp *
+              </span>
+              <div className="flex flex-row">
+                <CustomButton
+                  shape="round"
+                  type={isActive ? BUTTON_TYPE.active : BUTTON_TYPE.inactive}
+                  onClick={() => setActive(!isActive)}
+                  title={"2 kỳ"}
+                />
+                <div className="w-2" />
+                <CustomButton
+                  shape="round"
+                  type={!isActive ? BUTTON_TYPE.active : BUTTON_TYPE.inactive}
+                  title={"3 kỳ"}
+                  onClick={() => setActive(!isActive)}
+                />
+              </div>
+            </div>
+          </div>
           <TableTransaction
             tableLabel={["#", "Ngày đến hạn", "Số tiền(VND)"]}
           />

@@ -25,7 +25,7 @@ const TableTransaction = ({ itemsPerPage = 5 }) => {
   };
 
   return (
-    <div className="p-4 max-w-3xl mx-auto ">
+    <div className="px-4 max-w-3xl mx-auto ">
       <h2 className="font-semibold text-lg mb-4">Lịch trả nợ dự kiến:</h2>
 
       {/* Desktop Table */}
